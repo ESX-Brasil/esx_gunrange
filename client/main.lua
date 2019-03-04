@@ -78,11 +78,12 @@ Citizen.CreateThread(function()
 						count = count + 1
 						local number = math.random(#Config.targets)
 						cTCoords = Config.targets[number]
-						RequestModel('prop_range_target_01')
-						while not HasModelLoaded('prop_range_target_01') do
+						local model = GetHashKey('prop_range_target_01')
+						RequestModel(model)
+						while not HasModelLoaded(model) do
 						Citizen.Wait(0)
 						end
-						target = CreateObject('prop_range_target_01',cTCoords[1],cTCoords[2],cTCoords[3], true, true, true)
+						target = CreateObject(model,cTCoords[1],cTCoords[2],cTCoords[3], true, true, true)
 						SetEntityHeading(target,2.3)
 						Wait(wTime)
 						DeleteObject(target)
