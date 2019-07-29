@@ -1,6 +1,6 @@
 Config = {}
-Config.ChatMessages = false
-Config.Locale = 'en'
+Config.ChatMessages = false -- Mensagem no chat False ou True
+Config.Locale = 'en' -- Traduções en/br/fin
 
 
 Config.targets = {

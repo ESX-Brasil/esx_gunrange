@@ -1,11 +1,11 @@
-local cDif = nil -- Difficulty level
-local mTargets = 0 -- Max targets
-local coutDown = 300 --3sec Countdown timer
-local wTime = 0	-- Time between targets
+local cDif = nil -- Nível de dificuldade
+local mTargets = 0 -- Alvos máximos
+local coutDown = 300 --3 seg temporizador de contagem regressiva
+local wTime = 0	-- Tempo entre alvos
 local sShoot = false --
 local spwnT = false	 --
 local target = nil	--
-local cTCoords = {} -- Current target coords 
+local cTCoords = {} -- Coordenadas alvo atuais
 local points = 0 --
 local count = 0 --
 local showBoard = false
@@ -123,7 +123,7 @@ end
 AddEventHandler('gunrange:hasEnteredMarker', function(zone)
 	local player = GetPlayerPed(-1)
 		if zone == 'gunrange' then
-			 if sShoot ~= true then 
+			 if sShoot ~= true then
 				CurrentAction     = 'start'
 				CurrentActionMsg  = _U('actionMessage')
 				CurrentActionData = {}
@@ -146,8 +146,8 @@ Citizen.CreateThread(function()
 		local coords      = GetEntityCoords(GetPlayerPed(-1))
 		local isInMarker  = false
 		local currentZone = nil
-		
-			
+
+
 			if(GetDistanceBetweenCoords(coords,821.52,-2163.37,29.65, true) <= 2) then
 				isInMarker  = true
 				currentZone = 'gunrange'
@@ -159,9 +159,9 @@ Citizen.CreateThread(function()
 				currentZone = 'scores'
 			end
 
-			
 
-			
+
+
 			if isInMarker and not hasAlreadyEnteredMarker then
 				hasAlreadyEnteredMarker = true
 				lastZone                = currentZone
@@ -210,7 +210,7 @@ Citizen.CreateThread(function()
 				CurrentAction = nil
 				GUI.Time      = GetGameTimer()
 
-			end 
+			end
 		end
 	end
 end)
@@ -280,7 +280,7 @@ end)
 function DrawText3D(x,y,z, text)
     local onScreen,_x,_y=World3dToScreen2d(x,y,z)
     local px,py,pz=table.unpack(GetGameplayCamCoords())
-    
+
     SetTextScale(0.4, 0.4)
     SetTextFont(4)
     SetTextProportional(1)
@@ -314,5 +314,3 @@ Citizen.CreateThread(function()
 end)
 end)
 end
-
-
